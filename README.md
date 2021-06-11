@@ -52,6 +52,7 @@ Misclassified images during validation for all the three models are shown below
   </p> 
 
 **Result**
+
 The test and validation loss and accuracy are shown below
 
  <p align="center" style="padding: 10px">
