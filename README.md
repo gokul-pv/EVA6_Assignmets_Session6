@@ -52,6 +52,18 @@ As you can see from the below image write the input image shape as [N, C, H, W].
 
 ![enter image description here](https://images3.programmersought.com/664/06/067df05358305059bc6648a612267ec8.png)
 
+Some key points are as below: 
+
+- In BN, the mean and variance are calculated for different neuron inputs, and the inputs in the same batch have the same mean and variance. 
+
+- The **problem** with BN is that if batch size is 1, then variance would be 0 which doesn’t allow batch norm to work. Furthermore, if we have small mini-batch size then it becomes too noisy and training might affect.
+
+ - Unlike BN, LN normalizes all neurons in each layer. The same level of neuron input in LN has the same mean and variance, and different input samples have different mean and variance.
+
+- LN does not depend on the size of the batch and the depth of the input sequence, so it can be used for normalize operations where the batch size is 1 and the input sequence of the edge length in the RNN. In general, LN is often used in RNN networks!
+
+
+
 
 **Misclassified Images during validation**
 
@@ -87,4 +99,6 @@ The test and validation loss and accuracy are shown below
     <br>
     <em style="color: grey">Figure 1.h : Loss and accuracy plots</em>
   </p>
+
+The inference that we get from these plots is that, there is not much difference in the test accuracy between these 3 normalization. Since batch size is sufficiently large, the batch normalization performs relatively better than other two. 
 
